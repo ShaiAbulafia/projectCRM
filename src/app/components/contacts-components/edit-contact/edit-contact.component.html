@@ -1,0 +1,131 @@
+<div class="container p-5">
+  <div
+    class="text-center w-100 fs-1 p-3 px-5 text-white bg-primary border border-2 border-secondary shadowBox"
+    style="font-family: 'Anton', sans-serif"
+  >
+    Edit {{ contact.name }} contact Info
+  </div>
+  <hr />
+  <form #addContact="ngForm" (ngSubmit)="updateTheContact()">
+    <div class="form-group">
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputName" class="form-label mt-1 fw-bold">Name:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter first name"
+            name="firstName"
+            [(ngModel)]="contact.name"
+            #name="ngModel"
+            required
+            minlength="2"
+          />
+          <small
+            class="text-danger"
+            *ngIf="name.invalid && (name.touched || name.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputEmail" class="form-label mt-1 fw-bold">Email:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter email"
+            name="email"
+            [(ngModel)]="contact.email"
+            #email="ngModel"
+            required
+            email
+          />
+          <small
+            class="text-danger"
+            *ngIf="email.invalid && (email.touched || email.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputBirthday" class="form-label mt-1 fw-bold"
+            >Birthday:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Birthday"
+            name="birthday"
+            [(ngModel)]="contact.birthday"
+            #birthday="ngModel"
+            required
+            minlength="2"
+          />
+          <small
+            class="text-danger"
+            *ngIf="birthday.invalid && (birthday.touched || birthday.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputPhone" class="form-label mt-1 fw-bold">Phone:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter phone no."
+            name="phone"
+            [(ngModel)]="contact.phone"
+            #phone="ngModel"
+            required
+          />
+          <small
+            class="text-danger"
+            *ngIf="phone.invalid && (phone.touched || phone.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputImage" class="form-label mt-1 fw-bold"
+            >Image url:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter image url"
+            name="imageUrl"
+            [(ngModel)]="contact.imgUrl"
+            #imgUrl="ngModel"
+            required
+          />
+          <small
+            class="text-danger"
+            *ngIf="imgUrl.invalid && (imgUrl.touched || imgUrl.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary fs-4 w-100 mt-4">
+        Update
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class="row wrap-all">
+    <div class="col-2 bg-dark sidebar pt-3 fs-5">
+      <div class="text-center">
+        <h5 class="text-light">Logged in as</h5>
+        <img src="/assets/images/avatars/AvatarMaker.png" class="avatarImg" />
+        <h4 class="text-primary mx-3">{{ email }}</h4>
+      </div>
+      <hr style="color: white" />
+      <nav class="navbar w-100 px-2">
+        <ul class="navbar-nav d-flex flex-column w-100">
+          <li class="nav-item">
+            <a
+              routerLink="customers"
+              routerLinkActive="fw-bold text-primary activeLinkSM"
+              class="nav-link"
+              (click)="recallParentCompCustomer()"
+              [attr.aria-expanded]="!isCollapsedCustomer"
+              ><i class="fa-solid fa-user-group mx-2 fs-6"></i> Customers
+              <i class="fa-solid fa-arrow-turn-down mx-2"></i
+            ></a>
+            <ul class="bg-dark list-inline" [ngbCollapse]="isCollapsedCustomer">
+              <li>
+                <a
+                  routerLink="customers/customers-table"
+                  routerLinkActive="fw-bold text-primary activeLinkSM"
+                  class="nav-link mx-4"
+                  ><i class="fa-solid fa-people-group mx-2 fs-6"></i> Customers
+                  List</a
+                >
+              </li>
+              <li>
+                <a
+                  routerLink="customers/new-customer"
+                  routerLinkActive="fw-bold text-primary activeLinkSM"
+                  class="nav-link mx-4"
+                  ><i class="fa-solid fa-person-circle-plus mx-2 fs-6"></i> New
+                  customer</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item pt-2">
+            <a
+              routerLink="contacts"
+              routerLinkActive="fw-bold text-primary activeLinkSM"
+              class="nav-link"
+              (click)="recallParentCompContacts()"
+              [attr.aria-expanded]="!isCollapsedContacts"
+              ><i class="fa-solid fa-id-card mx-2 fs-6"></i> Contacts
+              <i class="fa-solid fa-arrow-turn-down mx-2"></i
+            ></a>
+            <ul class="bg-dark list-inline" [ngbCollapse]="isCollapsedContacts">
+              <li>
+                <a
+                  routerLink="contacts/contacts-table"
+                  routerLinkActive="fw-bold text-primary activeLinkSM"
+                  class="nav-link mx-4"
+                  ><i class="fa-solid fa-address-book mx-2 fs-6"></i> Contacts
+                  List</a
+                >
+              </li>
+              <li>
+                <a
+                  routerLink="contacts/new-contact"
+                  routerLinkActive="fw-bold text-primary activeLinkSM"
+                  class="nav-link mx-4"
+                  ><i class="fa-solid fa-square-plus mx-2 fs-6"></i> New
+                  contact</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item pt-2">
+            <a
+              class="nav-link"
+              routerLink="leads"
+              routerLinkActive="fw-bold text-primary activeLinkSM"
+              (click)="isCollapsedCustomer = true; isCollapsedContacts = true"
+              ><i class="fa-solid fa-circle-info mx-2 fs-6"></i> Leads</a
+            >
+          </li>
+
+          <li class="nav-item pt-2">
+            <a
+              class="nav-link"
+              routerLink="reports"
+              routerLinkActive="fw-bold text-primary activeLinkSM"
+              (click)="isCollapsedCustomer = true; isCollapsedContacts = true"
+              ><i class="fa-solid fa-flag mx-2 fs-6"></i> Reports</a
+            >
+          </li>
+
+          <li class="nav-item pt-2">
+            <a
+              class="nav-link"
+              routerLink="integrations"
+              routerLinkActive="fw-bold text-primary activeLinkSM"
+              (click)="isCollapsedCustomer = true; isCollapsedContacts = true"
+              ><i class="fa-solid fa-bars mx-2 fs-6"></i> Integrations</a
+            >
+          </li>
+
+          <li class="nav-item pt-2">
+            <a
+              class="nav-link"
+              routerLink="year-end-sale"
+              routerLinkActive="fw-bold text-primary activeLinkSM"
+              (click)="isCollapsedCustomer = true; isCollapsedContacts = true"
+              ><i class="fa-solid fa-sack-dollar mx-2 fs-6"></i> Year-end
+              Sale</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-10 px-4 pt-3 routerContent">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

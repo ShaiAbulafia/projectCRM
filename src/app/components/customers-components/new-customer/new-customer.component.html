@@ -1,0 +1,176 @@
+<div
+  class="container-fluid w-100 fs-1 p-3 px-5 text-white bg-primary border border-2 border-secondary shadowBox"
+  style="font-family: 'Anton', sans-serif"
+>
+  New Customer
+</div>
+<hr />
+<div
+  class="container-fluid shadowBox rounded wrapAll fs-5 border border-1 border-primary mt-4 p-4"
+>
+  <form
+    #addCustomer="ngForm"
+    [formGroup]="customerForm"
+    (ngSubmit)="addNewCustomer()"
+  >
+    <div class="form-group">
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputFirstName" class="form-label mt-1 fw-bold"
+            >First Name:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            id="InputFirstName"
+            type="text"
+            class="form-control border border-secondary"
+            placeholder="Enter first name"
+            name="firstName"
+            [(ngModel)]="customer.firstName"
+            formControlName="firstName"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+          />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">
+              First name is required
+            </div>
+            <div *ngIf="f.firstName.errors.minlength">
+              First name must be at least 2 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputLastName" class="form-label mt-1 fw-bold"
+            >Last Name:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            id="InputLastName"
+            type="text"
+            class="form-control border border-secondary"
+            placeholder="Enter last name"
+            name="lastName"
+            [(ngModel)]="customer.lastName"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last name is required</div>
+            <div *ngIf="f.lastName.errors.minlength">
+              Last name must be at least 2 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputEmail" class="form-label mt-1 fw-bold">Email:</label>
+        </div>
+        <div class="col-10">
+          <input
+            id="InputEmail"
+            type="text"
+            class="form-control border border-secondary"
+            placeholder="Enter email"
+            name="email"
+            [(ngModel)]="customer.email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputPhone" class="form-label mt-1 fw-bold">Phone:</label>
+        </div>
+        <div class="col-10">
+          <input
+            id="InputPhone"
+            type="text"
+            class="form-control border border-secondary"
+            placeholder="Enter phone no."
+            name="phone"
+            [(ngModel)]="customer.phone"
+            formControlName="phone"
+            [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+          />
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">phone is required</div>
+            <div *ngIf="f.phone.errors.pattern">Phone must be a valid</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputAdress" class="form-label mt-1 fw-bold"
+            >Adress:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            id="InputAdress"
+            type="text"
+            class="form-control border border-secondary"
+            placeholder="Enter adress"
+            name="adress"
+            [(ngModel)]="customer.adress"
+            formControlName="adress"
+            [ngClass]="{ 'is-invalid': submitted && f.adress.errors }"
+          />
+          <div *ngIf="submitted && f.adress.errors" class="invalid-feedback">
+            <div *ngIf="f.adress.errors.required">Adress is required</div>
+            <div *ngIf="f.adress.errors.minlength">
+              Adress must be at least 2 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputNotes" class="form-label mt-1 fw-bold"
+            >Notes: (optional)</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            id="InputNotes"
+            type="text"
+            class="form-control border border-secondary"
+            placeholder="Enter Notes"
+            name="notes"
+            [(ngModel)]="customer.notes"
+            formControlName="notes"
+          />
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary fs-4 w-100 mt-4 border border-secondary shadowBox"
+      >
+        + Add Customer
+      </button>
+    </div>
+  </form>
+  <button
+    type="button"
+    routerLink="/dashboard/customers/customers-table"
+    class="btn btn-dark fs-4 w-100 mt-4 border border-secondary shadowBox"
+  >
+    Go back
+  </button>
+</div>

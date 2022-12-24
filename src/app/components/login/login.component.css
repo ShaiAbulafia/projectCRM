@@ -1,0 +1,21 @@
+*:not(.fa-google, .fa-solid) {
+  font-family: "Questrial", sans-serif;
+}
+
+.enterContent {
+  background: url(/assets/images/enterBackground.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.infoWindow {
+  background-color: white;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.crmMidBox {
+  background-color: white;
+  width: 80%;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 20px;
+}

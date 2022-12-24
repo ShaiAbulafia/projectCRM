@@ -1,0 +1,61 @@
+<div class="row container-fluid enterContent p-0 vh-100 fs-5">
+  <div class="col-8 text-center"></div>
+  <div class="col-4 p-3 ps-4 infoWindow text-center">
+    <h1 class="my-5" style="font-family: 'Anton', sans-serif">
+      My <i class="fa-solid fa-layer-group"></i> CRM - Project
+    </h1>
+    <hr />
+    <form
+      #registerUserForm="ngForm"
+      [formGroup]="registerForm"
+      (ngSubmit)="register()"
+    >
+      <h1 class="my-5 text-primary" style="font-family: 'Anton', sans-serif">
+        Register
+      </h1>
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          name="email"
+          class="form-control"
+          id="floatingInputEmail"
+          placeholder="name@example.com"
+          formControlName="email"
+          [(ngModel)]="user.email"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
+
+        <label for="floatingInputEmail">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          [(ngModel)]="user.password"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          formControlName="password"
+        />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">
+            Password must be at least 8 characters
+          </div>
+        </div>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 my-4">Register</button>
+    </form>
+    <a routerLink="/login" class="text-black text-decoration-none">
+      Already have user? Login
+    </a>
+  </div>
+</div>

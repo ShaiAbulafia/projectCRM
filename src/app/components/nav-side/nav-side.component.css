@@ -1,0 +1,34 @@
+*:not(.fa-solid) {
+  font-family: "Questrial", sans-serif;
+}
+.shadowBox {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.nav-link {
+  color: white;
+}
+
+.avatarImg {
+  border-radius: 50%;
+  height: 50%;
+  width: 50%;
+}
+
+.routerContent {
+  font-size: 1.1rem;
+  background-color: #e9e9e9;
+}
+
+.sidebar {
+  height: inherit;
+}
+
+.wrap-all {
+  min-height: 100vh;
+}
+
+i {
+  font-size: 0.8rem;
+}

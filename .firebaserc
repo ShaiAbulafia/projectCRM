@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crm-project-shai": {
+      "hosting": {
+        "projectCRM": [
+          "crm-project-shai"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crm-project-shai"
+  }
+}

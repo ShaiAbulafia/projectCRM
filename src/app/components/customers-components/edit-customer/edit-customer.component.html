@@ -1,0 +1,159 @@
+<div class="container my-3 px-5 pb-3">
+  <div
+    class="text-center w-100 fs-1 p-3 px-5 text-white bg-primary border border-2 border-secondary shadowBox"
+    style="font-family: 'Anton', sans-serif"
+  >
+    Edit {{ customer.firstName }} {{ customer.lastName }} customer Info
+  </div>
+  <hr />
+  <form #updateCustomer="ngForm" (ngSubmit)="updateTheCustomer()">
+    <div class="form-group">
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputFirstName" class="form-label mt-1 fw-bold"
+            >First Name:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control w-100"
+            placeholder="Enter first name"
+            name="firstName"
+            [(ngModel)]="customer.firstName"
+            #firstName="ngModel"
+            required
+            minlength="2"
+          />
+          <small
+            class="text-danger fw-bold"
+            *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputLastName" class="form-label mt-1 fw-bold"
+            >Last Name:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter last name"
+            name="lastName"
+            [(ngModel)]="customer.lastName"
+            #lastName="ngModel"
+            required
+            minlength="2"
+          />
+          <small
+            class="text-danger fw-bold"
+            *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputEmail" class="form-label mt-1 fw-bold">Email:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter email"
+            name="email"
+            [(ngModel)]="customer.email"
+            #email="ngModel"
+            required
+            email
+          />
+          <small
+            class="text-danger fw-bold"
+            *ngIf="email.invalid && (email.touched || email.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputPhone" class="form-label mt-1 fw-bold">Phone:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter phone no."
+            name="phone"
+            [(ngModel)]="customer.phone"
+            #phone="ngModel"
+            required
+          />
+          <small
+            class="text-danger fw-bold"
+            *ngIf="phone.invalid && (phone.touched || phone.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputAdress" class="form-label mt-1 fw-bold"
+            >Adress:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter adress"
+            name="adress"
+            [(ngModel)]="customer.adress"
+            #adress="ngModel"
+            required
+            minlength="2"
+          />
+          <small
+            class="text-danger"
+            *ngIf="adress.invalid && (adress.touched || adress.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputNotes" class="form-label mt-1 fw-bold"
+            >Notes: (optional)</label
+          >
+        </div>
+        <div class="col-10">
+          <textarea
+            type="text"
+            class="form-control"
+            placeholder="Enter notes"
+            rows="5"
+            name="notes"
+            [(ngModel)]="customer.notes"
+            #note="ngModel"
+          ></textarea>
+          <small
+            class="text-danger"
+            *ngIf="note.invalid && (note.touched || note.dirty)"
+            >must contain at least 2 characters</small
+          >
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary fs-4 w-100 mt-4">
+        Update
+      </button>
+    </div>
+  </form>
+</div>

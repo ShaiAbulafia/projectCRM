@@ -1,0 +1,153 @@
+<div
+  class="container-fluid w-100 fs-1 p-3 px-5 text-white bg-primary border border-2 border-secondary shadowBox"
+  style="font-family: 'Anton', sans-serif"
+>
+  New Contact
+</div>
+<hr />
+
+<div
+  class="container-fluid wrapAll fs-5 shadowBox rounded border border-1 border-primary mt-4 p-4"
+>
+  <form
+    #addContact="ngForm"
+    [formGroup]="contactForm"
+    (ngSubmit)="addNewContact()"
+  >
+    <div class="form-group">
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputName" class="form-label mt-1 fw-bold">Name:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            id="InputName"
+            class="form-control border border-secondary"
+            placeholder="Enter name"
+            name="name"
+            [(ngModel)]="contact.name"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+          />
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+            <div *ngIf="f.name.errors.minlength">
+              Name must be at least 2 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputEmail" class="form-label mt-1 fw-bold">Email:</label>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            id="InputEmail"
+            class="form-control border border-secondary"
+            placeholder="Enter email"
+            name="email"
+            [(ngModel)]="contact.email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">email is required</div>
+            <div *ngIf="f.email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputBirthday" class="form-label mt-1 fw-bold"
+            >Birthday:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            id="InputBirthday"
+            class="form-control border border-secondary"
+            placeholder="Enter birthday"
+            name="birthday"
+            [(ngModel)]="contact.birthday"
+            formControlName="birthday"
+            [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }"
+          />
+          <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
+            <div *ngIf="f.birthday.errors.required">Birthday is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputPhone" class="form-label mt-1 fw-bold"
+            >Phone no.:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            id="InputPhone"
+            class="form-control border border-secondary"
+            placeholder="Enter phone no."
+            name="phone"
+            [(ngModel)]="contact.phone"
+            formControlName="phone"
+            [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+          />
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Phone is required</div>
+            <div *ngIf="f.phone.errors.pattern">Phone must be a valid</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-2">
+          <label for="InputImage" class="form-label mt-1 fw-bold"
+            >Image URL:</label
+          >
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            id="InputImage"
+            class="form-control border border-secondary"
+            placeholder="Enter image url"
+            name="imgUrl"
+            [(ngModel)]="contact.imgUrl"
+            formControlName="imgUrl"
+            [ngClass]="{ 'is-invalid': submitted && f.imgUrl.errors }"
+          />
+          <div *ngIf="submitted && f.imgUrl.errors" class="invalid-feedback">
+            <div *ngIf="f.imgUrl.errors.required">Image URL is required</div>
+            <div *ngIf="f.imgUrl.errors.minlength">
+              Image URL must be at least 2 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary fs-4 w-100 mt-5 border border-secondary shadowBox"
+      >
+        + Add Contact
+      </button>
+    </div>
+  </form>
+  <button
+    routerLink="/dashboard/customers/customers-table"
+    class="btn btn-dark fs-4 w-100 mt-4 border border-secondary shadowBox"
+  >
+    Go back
+  </button>
+</div>

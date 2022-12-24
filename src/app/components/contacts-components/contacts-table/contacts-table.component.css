@@ -1,0 +1,30 @@
+img {
+  border-radius: 50%;
+  width: auto;
+  height: 100px;
+}
+
+.card:hover {
+  transform: scale(1.2);
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.input-group-text,
+.form-control {
+  border-radius: 0;
+}
+
+.shadowBox {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.form-group {
+  height: 50px;
+}
+.input-group,
+.btn {
+  width: 300px;
+}

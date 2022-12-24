@@ -1,0 +1,12 @@
+*:not(.fa-solid) {
+  font-family: "Questrial", sans-serif;
+}
+.enterContent {
+  background: url(/assets/images/enterBackground.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.infoWindow {
+  background-color: white;
+  border-radius: 20px 0px 0px 20px;
+}

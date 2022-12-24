@@ -1,0 +1,71 @@
+<div class="container my-3 px-5 pb-3">
+  <div
+    class="text-center w-100 fs-1 p-3 px-5 text-white bg-dark border border-2 border-secondary shadowBox"
+    style="font-family: 'Anton', sans-serif"
+  >
+    {{ customer.firstName }} {{ customer.lastName }} customer Info
+  </div>
+  <hr />
+  <form #showCustomer="ngForm">
+    <div class="form-group">
+      <label for="InputFirstName" class="form-label mt-3 fw-bold"
+        >First Name:</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        name="firstName"
+        [(ngModel)]="customer.firstName"
+        disabled
+      />
+
+      <label for="InputLastName" class="form-label mt-3 fw-bold"
+        >Last Name:</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        name="lastName"
+        [(ngModel)]="customer.lastName"
+        disabled
+      />
+
+      <label for="InputEmail" class="form-label mt-3 fw-bold">Email:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        [(ngModel)]="customer.email"
+        disabled
+      />
+
+      <label for="InputPhone" class="form-label mt-3 fw-bold">Phone:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="phone"
+        [(ngModel)]="customer.phone"
+        disabled
+      />
+
+      <label for="InputAdress" class="form-label mt-3 fw-bold">Adress:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="adress"
+        [(ngModel)]="customer.adress"
+        disabled
+      />
+
+      <label for="InputNotes" class="form-label mt-3 fw-bold">Notes:</label>
+      <textarea
+        type="text"
+        class="form-control"
+        rows="5"
+        name="notes"
+        [(ngModel)]="customer.notes"
+        disabled
+      ></textarea>
+    </div>
+  </form>
+</div>

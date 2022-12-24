@@ -1,0 +1,92 @@
+<div
+  class="container-fluid w-100 fs-1 p-3 px-5 text-white bg-primary border border-2 border-secondary shadowBox"
+  style="font-family: 'Anton', sans-serif"
+>
+  Customers List
+</div>
+<hr />
+<div class="container-fluid my-3">
+  <div class="form-group d-flex flex-row">
+    <div class="input-group shadowBox">
+      <span class="input-group-text border border-secondary"
+        ><i class="fa-solid fa-magnifying-glass"></i
+      ></span>
+      <input
+        type="search"
+        class="form-control border border-secondary"
+        placeholder="First Name"
+        [(ngModel)]="firstName"
+      />
+    </div>
+    <div class="input-group shadowBox mx-4">
+      <span class="input-group-text border border-secondary"
+        ><i class="fa-solid fa-magnifying-glass"></i
+      ></span>
+      <input
+        type="search"
+        class="form-control border border-secondary"
+        placeholder="Last Name"
+        [(ngModel)]="lastName"
+      />
+    </div>
+    <div class="input-group shadowBox">
+      <span class="input-group-text border border-secondary"
+        ><i class="fa-solid fa-magnifying-glass"></i
+      ></span>
+      <input
+        type="search"
+        class="form-control border border-secondary"
+        placeholder="Phone"
+        [(ngModel)]="phone"
+      />
+    </div>
+    <button
+      class="btn btn-primary ms-auto mx-3 fs-5 shadowBox border border-secondary"
+      routerLink="/dashboard/customers/new-customer"
+    >
+      Add new customer
+    </button>
+  </div>
+</div>
+<hr />
+<ng-container
+  *ngIf="
+    customers
+      | customerFiler : 'firstName' : firstName
+      | customerFiler : 'lastName' : lastName
+      | customerFiler : 'phone' : phone as customers
+  "
+>
+  <table class="table bg-white border border-secondary shadowBox">
+    <thead class="table-dark">
+      <tr>
+        <th class="px-3">No.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers; index as i">
+        <td class="fw-bold px-3">{{ i + 1 }}</td>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.email }}</td>
+        <td>
+          <a (click)="showCustomer(customer)"
+            ><i class="fa-solid fa-eye text-primary"></i
+          ></a>
+          <a (click)="updateCustomer(customer)"
+            ><i class="fa-solid fa-pen text-success mx-3"></i
+          ></a>
+          <a (click)="deleteCustomer(customer)"
+            ><i class="fa-solid fa-trash text-danger"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
